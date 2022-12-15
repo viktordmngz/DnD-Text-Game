@@ -401,7 +401,7 @@ if __name__ == '__main__':
 							delay_readout(f"\nSince you chose 0, Master {name} I picked a stat at random for you. How does {stats['prof']} sound as a proficiency (y/n)?: ")
 							answerProf = input()
 
-							# REPEATED/COPIED CODE INSERTED HERE - This code was originally written first at line 381 (36 lines down) and was reused here
+							# REPEATED/COPIED CODE INSERTED HERE - This code was originally written first at line 440 (36 lines down) and was reused here
 							# If they type too many characters:
 							if len(answerProf) != 1:
 								delay_readout(f"\nMaster {name}, you really can't read, can you?\nThis has to be the 4th time you've come across a (y/n) prompt...\n")

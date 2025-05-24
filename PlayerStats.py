@@ -3,8 +3,8 @@
 Written by: Viktor Dominguez (with some help from Python.org, OverStack, and W3)
 Debugged/tested (painstakenly) by: Viktor Dominguez
 Date Started: 12/03/2022 (mm/dd/yyyy)
-Last update: 04/18/2025 (mm/dd/yyyy)
-Editor: Sublime Text
+Last update: 05/24/2025 (mm/dd/yyyy)
+Editor: Sublime Text --> VS Code
 
 ------------
 DESCRIPTION
@@ -147,7 +147,7 @@ class Player:
 
 		while True:
 			clear()
-			delay_readout(f"\nNow please enter how many ROLLS you will make, Master {self.name} (1-please nothing bigger than 6; 0 for random): ")
+			delay_readout(f"\nNow please enter how many ROLLS you will make, Master {self.name} (1-please nothing bigger than 20; 0 for random): ")
 			try:
 				rolls = int(input())
 			except ValueError:
@@ -274,7 +274,7 @@ class Player:
 			try:
 				rolls = int(input())
 			except ValueError:
-				delay_readout("\nYour friends must love your big, smooth-brain energy, huh? Please select a number this time... Any number above 1 will do.\n")
+				delay_readout("\nYour partner must love your big, smooth-brain energy, huh? Please select a number this time... Any number above 1 will do.\n")
 				sleep(1.5)
 				continue
 			if rolls == 0:
@@ -294,7 +294,7 @@ class Player:
 				sleep(1.5)
 				delay_readout("\nYou better not...")
 				sleep(2.5)
-				delay_readout("Please don't, I have a family...")
+				delay_readout("please don't, I have a family...")
 				sleep(2.0)
 				delay_readout("Fuck :'( Tell my wife I loved her\n")
 				sleep(2.0)
@@ -565,7 +565,7 @@ if __name__ == '__main__':
 		delay_readout(f"Master {name}, this would be an excellent opportunity to choose some stats of your own, wouldn't you agree? (y/n): ")
 		answerStats = input()
 		if len(answerStats) != 1:
-			delay_readout("\nI know you're excited, but please just stick to 'y' or 'n', Sire.\n")
+			delay_readout("\nI know you're excited, but please just stick to one character answers, Sire.\n")
 			sleep(1.5)
 			continue
 		else:
@@ -706,9 +706,7 @@ if __name__ == '__main__':
 			if rollIndex in range(1, len(rollChoices) + 1):
 				# Class Player() method call for one of the Dice Roll Functions
 				if rollIndex == 1:
-					# getattr(Obj, Attr) will return the value of Attr found stored within the Obj. EX) Obj(Attr = 4, otherAttr = '0') --> getattr(Obj, otherAttr) would return '0'
-					# diceRoll takes an int and a str as arguments. We need the int associated with the stat in our player object.
-					# Since we named the variables of the player object the same as the stats options, we can use statChosen for both:
+					# getattr(Obj, Attr) will return the value of Attr found stored within the Obj - ex Obj(Attr = 4, otherAttr = '0') --> getattr(Obj, otherAttr) would return '0'
 					player.diceRoll(getattr(player, statChosen), statChosen)
 				else:
 					player.dropLowestRoll(getattr(player, statChosen), statChosen)
@@ -716,8 +714,9 @@ if __name__ == '__main__':
 			# User chose Random:
 			elif rollIndex == 0:
 				randomRoll = randint(0,1)
-				delay_readout(f"\nSince you don't like making your own decisions, I chose: {rollChoices[randomRoll]}.\n\nHeavens forbid someone asks you what you want to eat for dinner.\n")
+				delay_readout(f"\nSince you don't like making your own decisions, I chose: {rollChoices[randomRoll]}.\n\nYou must not be the one deciding on where to have dinner, huh?\n")
 				sleep(1.5)
+				# Class Player() method call for one of the Dice Roll Functions
 				if randomRoll == 0:
 					player.diceRoll(getattr(player, statChosen), statChosen)
 				else:
